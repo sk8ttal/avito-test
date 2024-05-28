@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC 
 from tools.waiter import Waiter
-from conftest import WebDriver
+from web_driver.driver import WebDriver
 
 class WebItem:
     def __init__(self, locator, description):
@@ -11,9 +11,10 @@ class WebItem:
         self.description = description
         self.locator_type = By.XPATH
         
-        self.driver = WebDriver.get_instance()
+        self.driver = WebDriver.get_driver()
         self.web_driver_wait = lambda timeout: WebDriverWait(self.driver, timeout, poll_frequency=1)
         self.waiter = Waiter()
+        
         try: 
             self.element_is_present()
         finally:
