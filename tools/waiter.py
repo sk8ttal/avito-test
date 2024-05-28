@@ -1,8 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver import Chrome
-from web_driver.driver import WebDriver
+from conftest import WebDriver
 import time
 
 
@@ -12,8 +11,7 @@ class Waiter:
         self.wait = WebDriverWait(self.driver, max_wait_s, poll_frequency)
 
     def static_wait_s(self, duration: int):
-        '''
-        <summary> Статическая задержа </summary>
+        '''Статическая задержа
         
         Используется для временной приостановки работы скрипта (по необходимости).
         
@@ -21,14 +19,3 @@ class Waiter:
         time: время ожидания в секундах
         '''
         time.sleep(duration)
-
-    def wait_element(self, locator: str):
-        '''
-        <summary> Ожидает появление элемента страницы </summary>
-        
-        Args:
-        locator: Xpath локатор элемента 
-        '''
-        self.wait.until(
-            EC.presence_of_element_located((By.XPATH, locator))
-        )

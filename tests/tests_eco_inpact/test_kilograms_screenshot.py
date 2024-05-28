@@ -1,9 +1,10 @@
 from pages.base_page import BasePage
 
-class TestFullInvalidData:
+class TestKilogramsScreenshot:
      
-    def test_main(self):     
+    def test(self):     
         BasePage()\
+            .open_inpact_page()\
             .open_eco_inpact_page()\
             .take_screenshot_of_kilograms()
             

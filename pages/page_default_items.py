@@ -1,10 +1,7 @@
-from web_driver.driver import WebDriver
-from selenium.webdriver.support import expected_conditions as EC
+from conftest import WebDriver
+from web_driver_items.base_items import WebItem
 
-class PageDefaultItems:
-    def __init__(self):
-        self.driver = WebDriver.get_instance()     
-        
-    def open(self, PAGE_URL):
-        self.driver.get(PAGE_URL)
-        return self
+class PageDefaultItems:  
+    driver = WebDriver.get_instance()  
+    inputs = lambda name, description: WebItem(f"//input[@name='{name}']", f"Инпут для ввода {description}")   
+    panel_buttons = lambda name, description: WebItem(f"//a[text()='{name}']", f"Кнопка  {description}")

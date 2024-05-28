@@ -1,12 +1,9 @@
-from loguru import logger
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC 
 from tools.waiter import Waiter
-from tools.logger import Logger
-from web_driver.driver import WebDriver
+from conftest import WebDriver
 
 class WebItem:
     def __init__(self, locator, description):
@@ -78,7 +75,7 @@ class WebItem:
     def element_is_visible(self, timeout=5):
         return self.web_driver_wait(timeout).until(EC.visibility_of_element_located((self.locator_type, self.locator)))
     
-    def element_is_present(self, timeout=5):
+    def element_is_present(self, timeout=10):
         return self.web_driver_wait(timeout).until(EC.presence_of_element_located((self.locator_type, self.locator)))
     
     def element_is_clickable(self, timeout=5):
