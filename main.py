@@ -2,7 +2,7 @@ import subprocess
 import os
 
 def run_pytest():
-    folder_path = 'tests/tests_eco_inpact'
+    folder_path = 'tests'
     tests = [f for f in os.listdir(folder_path) if f.endswith('.py')]
 
     for test in tests:

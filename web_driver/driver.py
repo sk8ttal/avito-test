@@ -25,5 +25,6 @@ class WebDriver:
     @classmethod
     def quit_driver(cls):
         if cls._driver is not None:
+            cls._driver.close()
             cls._driver.quit()
             cls._driver = None
