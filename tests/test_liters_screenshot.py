@@ -1,10 +1,10 @@
 from pages.base_page import BasePage
 
-class TestKwatScreenshot:
+class TestLitersScreenshot:
      
-    def test(self):     
+    def test(driver):     
         BasePage()\
             .open_inpact_page()\
             .open_eco_inpact_page()\
-            .take_screenshot_of_kilowats()
+            .take_screenshot_of_liters()
         
